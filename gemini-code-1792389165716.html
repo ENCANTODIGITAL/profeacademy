@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Matemáticas Leo - PROFEACADEMIC</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <!-- Header -->
+  <header>
+    <div class="logo">PROFEACADEMIC</div>
+    <nav>
+      <a href="#inicio">Inicio</a>
+      <a href="#videos">Videos</a>
+      <a href="#cursos">Cursos</a>
+      <a href="https://www.youtube.com/@Profeacademic" target="_blank">Contacto</a>
+    </nav>
+    <button id="toggleMode">🌙</button>
+  </header>
+
+  <!-- Hero Section -->
+  <section id="inicio" class="hero">
+    <div class="hero-text">
+      <h1>¡Aprende Matemáticas Paso a Paso!</h1>
+      <p>Fórmulas, ejemplos y tips claros para todos (+54k suscriptores)</p>
+      <a href="https://www.youtube.com/@Profeacademic" target="_blank" class="cta">
+        Visita mi Canal de YouTube
+      </a>
+    </div>
+  </section>
+
+  <!-- Últimos Videos (Carrusel) -->
+  <section id="videos" class="galeria-videos">
+    <h2>Últimos Videos</h2>
+    <div class="video-carousel">
+      <button class="prev">&#10094;</button>
+      <div class="video-track">
+        <div class="video-card">
+          <iframe src="https://www.youtube.com/embed/BtTF7NrhmOM" title="¿Qué es la Potenciación?" loading="lazy" allowfullscreen></iframe>
+          <p>¿Qué es la Potenciación?</p>
+        </div>
+        <div class="video-card">
+          <iframe src="https://www.youtube.com/embed/VfZOKsQqhiQ" title="Expresiones Algebraicas" loading="lazy" allowfullscreen></iframe>
+          <p>Expresiones Algebraicas</p>
+        </div>
+        <div class="video-card">
+          <iframe src="https://www.youtube.com/embed/XlOXuD-F0Eg" title="Factorización" loading="lazy" allowfullscreen></iframe>
+          <p>Factorización</p>
+        </div>
+        <div class="video-card">
+          <iframe src="https://www.youtube.com/embed/RMghUQ4Np20" title="Fracciones" loading="lazy" allowfullscreen></iframe>
+          <p>Fracciones Explicadas</p>
+        </div>
+      </div>
+      <button class="next">&#10095;</button>
+    </div>
+  </section>
+
+  <!-- Cursos Destacados -->
+  <section id="cursos" class="cursos">
+    <h2>Cursos Destacados</h2>
+    <div class="cursos-container">
+      <div class="curso-card" onclick="openCine('https://www.youtube.com/embed/BtTF7NrhmOM', 'Productos Notables')">
+        <img src="FOTOS/algebra.jpg" alt="Productos Notables">
+        <h3>PRODUCTOS NOTABLES (33 lecciones)</h3>
+      </div>
+      <div class="curso-card" onclick="openCine('https://www.youtube.com/embed/VfZOKsQqhiQ', 'Fracciones')">
+        <img src="FOTOS/calculo.jpg" alt="Fracciones">
+        <h3>FRACCIONES (24 lecciones)</h3>
+      </div>
+      <div class="curso-card" onclick="openCine('https://www.youtube.com/embed/XlOXuD-F0Eg', 'Conjuntos')">
+        <img src="FOTOS/geometria.jpg" alt="Conjuntos">
+        <h3>CONJUNTOS (42 lecciones)</h3>
+      </div>
+      <div class="curso-card" onclick="openCine('https://www.youtube.com/embed/RMghUQ4Np20', 'Leyes de Exponentes')">
+        <img src="FOTOS/estadistica.jpg" alt="Leyes de Exponentes">
+        <h3>LEYES DE EXPONENTES (23 lecciones)</h3>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonios -->
+  <section class="testimonios">
+    <h2>Lo que dicen nuestros estudiantes</h2>
+    <blockquote>“¡Excelente explicación, muy claro todo!”</blockquote>
+    <blockquote>“Gracias a tus videos entendí matemáticas fácilmente.”</blockquote>
+  </section>
+
+  <!-- Modo Cine (Modal) -->
+  <div id="cineContainer" class="cine-mode">
+    <div class="cine-video">
+      <iframe id="cineVideo" src="" allowfullscreen></iframe>
+      <button class="close-btn" onclick="closeCine()">Cerrar modo cine</button>
+    </div>
+    <div class="cine-sidebar">
+      <h3>Temario del Curso</h3>
+      <ul id="temarioList"></ul>
+      <h3>Videos Recomendados</h3>
+      <ul id="recomendadosList"></ul>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <p style="text-align:center; padding: 20px; color: #888;">&copy; 2026 Profeacademic - Todos los derechos reservados.</p>
+  </footer>
+
+  <script src="scripts.js"></script>
+</body>
+</html>
