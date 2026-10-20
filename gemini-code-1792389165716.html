@@ -1,111 +1,617 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es" class="scroll-smooth">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Matemáticas Leo - PROFEACADEMIC</title>
-  <link rel="stylesheet" href="styles.css">
+  <title>Profeacademic - Matemáticas Fáciles</title>
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              yellow: '#ffcc00',
+              dark: '#0a0a0a',
+              card: '#111111',
+              border: '#222222'
+            }
+          }
+        }
+      }
+    }
+  </script>
+  <!-- Google Fonts: Montserrat -->
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Montserrat', sans-serif;
+    }
+    .video-track::-webkit-scrollbar {
+      display: none;
+    }
+    .video-track {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+  </style>
 </head>
-<body>
+<body class="bg-[#0a0a0a] text-white transition-colors duration-300 min-h-screen flex flex-col">
+
   <!-- Header -->
-  <header>
-    <div class="logo">PROFEACADEMIC</div>
-    <nav>
-      <a href="#inicio">Inicio</a>
-      <a href="#videos">Videos</a>
-      <a href="#cursos">Cursos</a>
-      <a href="https://www.youtube.com/@Profeacademic" target="_blank">Contacto</a>
+  <header class="sticky top-0 z-50 bg-[#0a0a0a]/90 backdrop-blur-md border-b border-[#222] px-6 py-4 flex justify-between items-center transition-colors duration-300">
+    <div class="logo text-[#ffcc00] text-2xl font-extrabold tracking-wider flex items-center gap-2">
+      <span>PROFEACADEMIC</span>
+    </div>
+    <nav class="hidden md:flex items-center gap-6">
+      <a href="#inicio" class="text-white hover:text-[#ffcc00] transition-colors font-medium text-lg">Inicio</a>
+      <a href="#videos" class="text-white hover:text-[#ffcc00] transition-colors font-medium text-lg">Videos</a>
+      <a href="#cursos" class="text-white hover:text-[#ffcc00] transition-colors font-medium text-lg">Cursos</a>
+      <a href="#testimonios" class="text-white hover:text-[#ffcc00] transition-colors font-medium text-lg">Testimonios</a>
     </nav>
-    <button id="toggleMode">🌙</button>
+    <div class="flex items-center gap-4">
+      <button id="toggleMode" aria-label="Cambiar modo" class="p-2 rounded-full bg-[#222] text-xl hover:bg-[#333] transition-colors cursor-pointer">
+        🌙
+      </button>
+      <a href="https://www.youtube.com/@Profeacademic" target="_blank" class="hidden sm:inline-block bg-[#ffcc00] text-black px-4 py-2 rounded-lg font-bold hover:bg-[#e6b800] transition-transform hover:scale-105">
+        Canal YouTube
+      </a>
+    </div>
   </header>
 
   <!-- Hero Section -->
-  <section id="inicio" class="hero">
-    <div class="hero-text">
-      <h1>¡Aprende Matemáticas Paso a Paso!</h1>
-      <p>Fórmulas, ejemplos y tips claros para todos (+54k suscriptores)</p>
-      <a href="https://www.youtube.com/@Profeacademic" target="_blank" class="cta">
-        Visita mi Canal de YouTube
+  <section id="inicio" class="relative flex items-center justify-start px-6 md:px-16 py-20 min-h-[480px] bg-[url('https://images.unsplash.com/photo-1509228468518-180dd4864904?auto=format&fit=crop&q=80&w=1600')] bg-cover bg-center">
+    <div class="absolute inset-0 bg-gradient-to-r from-black/80 via-black/50 to-transparent z-10"></div>
+    <div class="relative max-w-2xl z-20">
+      <span class="inline-block bg-[#ffcc00] text-black text-xs font-extrabold px-3 py-1 rounded-full uppercase tracking-wider mb-4">+54K Suscriptores</span>
+      <h1 class="text-4xl md:text-5xl lg:text-6xl font-extrabold text-[#ffcc00] mb-6 leading-tight">
+        ¡Aprende Matemáticas Paso a Paso!
+      </h1>
+      <p class="text-lg md:text-xl text-gray-200 mb-8 font-medium">
+        Fórmulas, ejemplos y explicaciones claras para dominar álgebra, aritmética, cálculo y mucho más.
+      </p>
+      <a href="https://www.youtube.com/@Profeacademic" target="_blank" class="inline-block bg-[#ffcc00] text-black px-8 py-4 rounded-xl font-bold text-lg shadow-lg hover:bg-[#e6b800] transition-all transform hover:scale-105">
+        Visitar Canal de YouTube
       </a>
     </div>
   </section>
 
-  <!-- Últimos Videos (Carrusel) -->
-  <section id="videos" class="galeria-videos">
-    <h2>Últimos Videos</h2>
-    <div class="video-carousel">
-      <button class="prev">&#10094;</button>
-      <div class="video-track">
-        <div class="video-card">
-          <iframe src="https://www.youtube.com/embed/BtTF7NrhmOM" title="¿Qué es la Potenciación?" loading="lazy" allowfullscreen></iframe>
-          <p>¿Qué es la Potenciación?</p>
-        </div>
-        <div class="video-card">
-          <iframe src="https://www.youtube.com/embed/VfZOKsQqhiQ" title="Expresiones Algebraicas" loading="lazy" allowfullscreen></iframe>
-          <p>Expresiones Algebraicas</p>
-        </div>
-        <div class="video-card">
-          <iframe src="https://www.youtube.com/embed/XlOXuD-F0Eg" title="Factorización" loading="lazy" allowfullscreen></iframe>
-          <p>Factorización</p>
-        </div>
-        <div class="video-card">
-          <iframe src="https://www.youtube.com/embed/RMghUQ4Np20" title="Fracciones" loading="lazy" allowfullscreen></iframe>
-          <p>Fracciones Explicadas</p>
-        </div>
+  <!-- Galería de Videos (Carrusel con Miniaturas Interactivas) -->
+  <section id="videos" class="py-16 px-6 max-w-7xl mx-auto w-full">
+    <div class="flex justify-between items-center mb-8">
+      <h2 class="text-3xl font-extrabold text-[#ffcc00] border-l-4 border-[#ffcc00] pl-4">Últimos Videos</h2>
+      <div class="flex gap-2">
+        <button class="prev bg-[#222] hover:bg-[#ffcc00] hover:text-black text-white p-3 rounded-full transition-colors cursor-pointer text-xl font-bold shadow-md" aria-label="Anterior">&#10094;</button>
+        <button class="next bg-[#222] hover:bg-[#ffcc00] hover:text-black text-white p-3 rounded-full transition-colors cursor-pointer text-xl font-bold shadow-md" aria-label="Siguiente">&#10095;</button>
       </div>
-      <button class="next">&#10095;</button>
+    </div>
+    
+    <div class="video-carousel relative overflow-hidden py-2">
+      <div class="video-track flex gap-6 overflow-x-auto scroll-smooth pb-4">
+        
+        <!-- Video Card 1 -->
+        <div onclick="openFeaturedVideo('https://www.youtube.com/embed/EEAB4ZPpYwE')" class="video-card flex-[0_0_280px] md:flex-[0_0_320px] bg-[#111] border border-[#333] rounded-2xl overflow-hidden shadow-xl hover:border-[#ffcc00] transition-all group cursor-pointer">
+          <div class="aspect-video w-full bg-black relative flex items-center justify-center overflow-hidden">
+            <img src="https://img.youtube.com/vi/EEAB4ZPpYwE/hqdefault.jpg" alt="Binomio al Cuadrado" class="w-full h-full object-cover brightness-75 group-hover:scale-105 transition-all duration-300">
+            <div class="absolute inset-0 flex items-center justify-center bg-black/40 group-hover:bg-black/20 transition-colors">
+              <div class="w-12 h-12 rounded-full bg-[#ffcc00] text-black flex items-center justify-center font-bold text-xl shadow-lg transform group-hover:scale-110 transition-transform">&#9654;</div>
+            </div>
+          </div>
+          <div class="p-4">
+            <h3 class="font-bold text-lg text-white group-hover:text-[#ffcc00] transition-colors">Binomio al Cuadrado</h3>
+            <p class="text-gray-400 text-sm mt-1">Fórmula general y ejemplos prácticos.</p>
+          </div>
+        </div>
+
+        <!-- Video Card 2 -->
+        <div onclick="openFeaturedVideo('https://www.youtube.com/embed/VfZOKsQqhiQ')" class="video-card flex-[0_0_280px] md:flex-[0_0_320px] bg-[#111] border border-[#333] rounded-2xl overflow-hidden shadow-xl hover:border-[#ffcc00] transition-all group cursor-pointer">
+          <div class="aspect-video w-full bg-black relative flex items-center justify-center overflow-hidden">
+            <img src="https://img.youtube.com/vi/VfZOKsQqhiQ/hqdefault.jpg" alt="Expresiones Algebraicas" class="w-full h-full object-cover brightness-75 group-hover:scale-105 transition-all duration-300">
+            <div class="absolute inset-0 flex items-center justify-center bg-black/40 group-hover:bg-black/20 transition-colors">
+              <div class="w-12 h-12 rounded-full bg-[#ffcc00] text-black flex items-center justify-center font-bold text-xl shadow-lg transform group-hover:scale-110 transition-transform">&#9654;</div>
+            </div>
+          </div>
+          <div class="p-4">
+            <h3 class="font-bold text-lg text-white group-hover:text-[#ffcc00] transition-colors">Expresiones Algebraicas</h3>
+            <p class="text-gray-400 text-sm mt-1">Conceptos fundamentales desde cero.</p>
+          </div>
+        </div>
+
+        <!-- Video Card 3 -->
+        <div onclick="openFeaturedVideo('https://www.youtube.com/embed/XlOXuD-F0Eg')" class="video-card flex-[0_0_280px] md:flex-[0_0_320px] bg-[#111] border border-[#333] rounded-2xl overflow-hidden shadow-xl hover:border-[#ffcc00] transition-all group cursor-pointer">
+          <div class="aspect-video w-full bg-black relative flex items-center justify-center overflow-hidden">
+            <img src="https://img.youtube.com/vi/XlOXuD-F0Eg/hqdefault.jpg" alt="Factorización" class="w-full h-full object-cover brightness-75 group-hover:scale-105 transition-all duration-300">
+            <div class="absolute inset-0 flex items-center justify-center bg-black/40 group-hover:bg-black/20 transition-colors">
+              <div class="w-12 h-12 rounded-full bg-[#ffcc00] text-black flex items-center justify-center font-bold text-xl shadow-lg transform group-hover:scale-110 transition-transform">&#9654;</div>
+            </div>
+          </div>
+          <div class="p-4">
+            <h3 class="font-bold text-lg text-white group-hover:text-[#ffcc00] transition-colors">Factorización</h3>
+            <p class="text-gray-400 text-sm mt-1">Trucos y métodos infalibles.</p>
+          </div>
+        </div>
+
+        <!-- Video Card 4 -->
+        <div onclick="openFeaturedVideo('https://www.youtube.com/embed/RMghUQ4Np20')" class="video-card flex-[0_0_280px] md:flex-[0_0_320px] bg-[#111] border border-[#333] rounded-2xl overflow-hidden shadow-xl hover:border-[#ffcc00] transition-all group cursor-pointer">
+          <div class="aspect-video w-full bg-black relative flex items-center justify-center overflow-hidden">
+            <img src="https://img.youtube.com/vi/RMghUQ4Np20/hqdefault.jpg" alt="Problemas de Fracciones" class="w-full h-full object-cover brightness-75 group-hover:scale-105 transition-all duration-300">
+            <div class="absolute inset-0 flex items-center justify-center bg-black/40 group-hover:bg-black/20 transition-colors">
+              <div class="w-12 h-12 rounded-full bg-[#ffcc00] text-black flex items-center justify-center font-bold text-xl shadow-lg transform group-hover:scale-110 transition-transform">&#9654;</div>
+            </div>
+          </div>
+          <div class="p-4">
+            <h3 class="font-bold text-lg text-white group-hover:text-[#ffcc00] transition-colors">Problemas de Fracciones</h3>
+            <p class="text-gray-400 text-sm mt-1">Suma, resta y operaciones básicas.</p>
+          </div>
+        </div>
+
+      </div>
     </div>
   </section>
 
   <!-- Cursos Destacados -->
-  <section id="cursos" class="cursos">
-    <h2>Cursos Destacados</h2>
-    <div class="cursos-container">
-      <div class="curso-card" onclick="openCine('https://www.youtube.com/embed/BtTF7NrhmOM', 'Productos Notables')">
-        <img src="FOTOS/algebra.jpg" alt="Productos Notables">
-        <h3>PRODUCTOS NOTABLES (33 lecciones)</h3>
+  <section id="cursos" class="py-16 px-6 max-w-7xl mx-auto w-full">
+    <div class="text-center mb-12">
+      <h2 class="text-3xl md:text-4xl font-extrabold text-[#ffcc00] mb-3">Cursos Destacados</h2>
+      <p class="text-gray-400 text-lg">Selecciona un curso para abrir el Modo Cine interactivo con su temario completo</p>
+    </div>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+      
+      <!-- Curso 1 -->
+      <div onclick="openCine('Productos Notables')" class="curso-card relative h-64 rounded-2xl overflow-hidden cursor-pointer shadow-xl group border border-[#222] hover:border-[#ffcc00] transition-all">
+        <img src="https://images.unsplash.com/photo-1635070041078-e363dbe005cb?auto=format&fit=crop&q=80&w=600" alt="Productos Notables" class="w-full h-full object-cover brightness-50 group-hover:brightness-75 group-hover:scale-110 transition-all duration-500">
+        <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent"></div>
+        <div class="absolute bottom-5 left-5 right-5">
+          <span class="text-xs bg-[#ffcc00] text-black font-extrabold px-2.5 py-1 rounded-md uppercase">33 Lecciones</span>
+          <h3 class="text-xl font-bold text-[#ffcc00] mt-2 drop-shadow-md">Productos Notables</h3>
+        </div>
       </div>
-      <div class="curso-card" onclick="openCine('https://www.youtube.com/embed/VfZOKsQqhiQ', 'Fracciones')">
-        <img src="FOTOS/calculo.jpg" alt="Fracciones">
-        <h3>FRACCIONES (24 lecciones)</h3>
+
+      <!-- Curso 2 -->
+      <div onclick="openCine('Fracciones')" class="curso-card relative h-64 rounded-2xl overflow-hidden cursor-pointer shadow-xl group border border-[#222] hover:border-[#ffcc00] transition-all">
+        <img src="https://images.unsplash.com/photo-1596495577886-d920f1fb7238?auto=format&fit=crop&q=80&w=600" alt="Fracciones" class="w-full h-full object-cover brightness-50 group-hover:brightness-75 group-hover:scale-110 transition-all duration-500">
+        <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent"></div>
+        <div class="absolute bottom-5 left-5 right-5">
+          <span class="text-xs bg-[#ffcc00] text-black font-extrabold px-2.5 py-1 rounded-md uppercase">24 Lecciones</span>
+          <h3 class="text-xl font-bold text-[#ffcc00] mt-2 drop-shadow-md">Fracciones</h3>
+        </div>
       </div>
-      <div class="curso-card" onclick="openCine('https://www.youtube.com/embed/XlOXuD-F0Eg', 'Conjuntos')">
-        <img src="FOTOS/geometria.jpg" alt="Conjuntos">
-        <h3>CONJUNTOS (42 lecciones)</h3>
+
+      <!-- Curso 3 -->
+      <div onclick="openCine('Conjuntos')" class="curso-card relative h-64 rounded-2xl overflow-hidden cursor-pointer shadow-xl group border border-[#222] hover:border-[#ffcc00] transition-all">
+        <img src="https://images.unsplash.com/photo-1509228468518-180dd4864904?auto=format&fit=crop&q=80&w=600" alt="Conjuntos" class="w-full h-full object-cover brightness-50 group-hover:brightness-75 group-hover:scale-110 transition-all duration-500">
+        <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent"></div>
+        <div class="absolute bottom-5 left-5 right-5">
+          <span class="text-xs bg-[#ffcc00] text-black font-extrabold px-2.5 py-1 rounded-md uppercase">42 Lecciones</span>
+          <h3 class="text-xl font-bold text-[#ffcc00] mt-2 drop-shadow-md">Conjuntos</h3>
+        </div>
       </div>
-      <div class="curso-card" onclick="openCine('https://www.youtube.com/embed/RMghUQ4Np20', 'Leyes de Exponentes')">
-        <img src="FOTOS/estadistica.jpg" alt="Leyes de Exponentes">
-        <h3>LEYES DE EXPONENTES (23 lecciones)</h3>
+
+      <!-- Curso 4 -->
+      <div onclick="openCine('Leyes de Exponentes')" class="curso-card relative h-64 rounded-2xl overflow-hidden cursor-pointer shadow-xl group border border-[#222] hover:border-[#ffcc00] transition-all">
+        <img src="https://images.unsplash.com/photo-1629654297299-c8506221ca97?auto=format&fit=crop&q=80&w=600" alt="Leyes de Exponentes" class="w-full h-full object-cover brightness-50 group-hover:brightness-75 group-hover:scale-110 transition-all duration-500">
+        <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent"></div>
+        <div class="absolute bottom-5 left-5 right-5">
+          <span class="text-xs bg-[#ffcc00] text-black font-extrabold px-2.5 py-1 rounded-md uppercase">23 Lecciones</span>
+          <h3 class="text-xl font-bold text-[#ffcc00] mt-2 drop-shadow-md">Leyes de Exponentes</h3>
+        </div>
       </div>
+
     </div>
   </section>
 
   <!-- Testimonios -->
-  <section class="testimonios">
-    <h2>Lo que dicen nuestros estudiantes</h2>
-    <blockquote>“¡Excelente explicación, muy claro todo!”</blockquote>
-    <blockquote>“Gracias a tus videos entendí matemáticas fácilmente.”</blockquote>
+  <section id="testimonios" class="py-16 px-6 bg-[#111] border-y border-[#222] my-8">
+    <div class="max-w-7xl mx-auto">
+      <h2 class="text-3xl font-extrabold text-[#ffcc00] text-center mb-12">Lo que dicen nuestros estudiantes</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <blockquote class="bg-[#0a0a0a] p-8 rounded-2xl border-l-4 border-[#ffcc00] shadow-xl relative">
+          <p class="text-lg italic text-gray-200 mb-4">“¡Excelente explicación! Gracias al profe Leo por fin logré entender las derivadas y aprobar mis exámenes sin estrés.”</p>
+          <footer class="text-[#ffcc00] font-bold">— Carlos M., Estudiante Universitario</footer>
+        </blockquote>
+        <blockquote class="bg-[#0a0a0a] p-8 rounded-2xl border-l-4 border-[#ffcc00] shadow-xl relative">
+          <p class="text-lg italic text-gray-200 mb-4">“Los videos son súper dinámicos y directos al grano. La mejor página para repasar matemáticas desde casa.”</p>
+          <footer class="text-[#ffcc00] font-bold">— Andrea P., Estudiante de Secundaria</footer>
+        </blockquote>
+      </div>
+    </div>
   </section>
 
-  <!-- Modo Cine (Modal) -->
-  <div id="cineContainer" class="cine-mode">
-    <div class="cine-video">
-      <iframe id="cineVideo" src="" allowfullscreen></iframe>
-      <button class="close-btn" onclick="closeCine()">Cerrar modo cine</button>
+  <!-- Footer -->
+  <footer class="mt-auto bg-[#0a0a0a] border-t border-[#222] py-8 px-6 text-center text-gray-400">
+    <p class="font-medium">&copy; 2026 Profeacademic - Todos los derechos reservados.</p>
+    <p class="text-sm mt-2 text-[#ffcc00]">Creado con pasión para hacer las matemáticas fáciles.</p>
+  </footer>
+
+  <!-- Modo Cine (Modal Interactivo Mejorado con Distribución Equilibrada y Botón Cerrar X) -->
+  <div id="cineContainer" class="cine-mode fixed inset-0 bg-black/95 z-50 flex flex-col p-4 md:p-8 overflow-y-auto opacity-0 pointer-events-none transition-all duration-400">
+    
+    <!-- Cabecera del Modal con Título y Botón de Cierre "X" -->
+    <div class="max-w-7xl mx-auto w-full flex justify-between items-center mb-6 border-b border-[#222] pb-4">
+      <h3 id="cursoTituloModal" class="text-xl md:text-2xl font-extrabold text-[#ffcc00]">Temario del Curso</h3>
+      <button onclick="closeCine()" class="bg-[#222] hover:bg-[#ffcc00] hover:text-black text-white w-10 h-10 rounded-full font-bold text-xl transition-colors cursor-pointer flex items-center justify-center shadow-lg" aria-label="Cerrar modal">&#10005;</button>
     </div>
-    <div class="cine-sidebar">
-      <h3>Temario del Curso</h3>
-      <ul id="temarioList"></ul>
-      <h3>Videos Recomendados</h3>
-      <ul id="recomendadosList"></ul>
+
+    <!-- Contenedor Principal en Grid (Video más grande a la izquierda, lista ordenada a la derecha) -->
+    <div class="max-w-7xl mx-auto w-full grid grid-cols-1 lg:grid-cols-3 gap-6 flex-grow">
+      
+      <!-- Reproductor de Video (Ocupa 2 columnas, mucho más grande) -->
+      <div class="lg:col-span-2 flex flex-col justify-center">
+        <div class="w-full aspect-video bg-black rounded-2xl overflow-hidden shadow-2xl border border-[#333]">
+          <iframe id="cineVideo" src="" class="w-full h-full" frameborder="0" allowfullscreen></iframe>
+        </div>
+      </div>
+
+      <!-- Sidebar Temario y Lecciones (Ocupa 1 columna con scroll independiente) -->
+      <div class="lg:col-span-1 bg-[#111] border border-[#333] p-5 rounded-2xl flex flex-col gap-4 shadow-2xl max-h-[75vh] overflow-y-auto">
+        <h4 class="text-xs font-bold text-gray-400 uppercase tracking-wider border-b border-[#222] pb-2">Lista de Clases</h4>
+        <!-- Contenedor dinámico de subtemas y videos -->
+        <div id="temarioContainer" class="space-y-3"></div>
+      </div>
+
     </div>
   </div>
 
-  <!-- Footer -->
-  <footer>
-    <p style="text-align:center; padding: 20px; color: #888;">&copy; 2026 Profeacademic - Todos los derechos reservados.</p>
-  </footer>
+  <!-- Scripts -->
+  <script>
+    // =========================================================================
+    // BASE DE DATOS DE CURSOS, SUBTEMAS Y VIDEOS
+    // =========================================================================
+    const cursosData = {
+      'Productos Notables': {
+        subtemas: [
+          {
+            titulo: 'Binomio al Cuadrado',
+            videos: [
+              { nombre: 'Binomio al Cuadrado (x+5)² [Video 1]', url: 'https://www.youtube.com/embed/EEAB4ZPpYwE?si=AyGSrSURvml_YHvK' },
+              { nombre: 'Binomio al Cuadrado (x-7)² [Video 2]', url: 'https://www.youtube.com/embed/iBU1nFTbh6U?si=BXjmHdK-AdZN5oT4' },
+              { nombre: 'Ejemplo 02: (x⁵ + 4y)² [Video 3]', url: 'https://www.youtube.com/embed/EfFGzUoYwLo?si=xnXBMTTSWlNUbG7o' },
+              { nombre: 'Ejemplo 03: (5x + 3y²) [Video 4]', url: 'https://www.youtube.com/embed/E8CSC4-s_5Q?si=K3nMGFk1w6wbQ3NN' },
+              { nombre: 'Binomio al Cuadrado con Fracciones [Video 5]', url: 'https://www.youtube.com/embed/8zC4Tp89s_4?si=k20VPUNZZhBQCNP2' },
+              { nombre: 'Ejemplo 05: (x - 3y) [Video 6]', url: 'https://www.youtube.com/embed/Y2f92GNhBKA?si=igSO_hFUhjsNoY3v' },
+              { nombre: 'Ejemplo 06: (2x²y³ - 5x) [Video 7]', url: 'https://www.youtube.com/embed/G_N5JXGvGHg?si=1lOgFBtm-Q0jIYAC' },
+              { nombre: '¿De dónde sale la fórmula? [Video 8]', url: 'https://www.youtube.com/embed/QHdaI7SotHo?si=MGa8K74pLrTxHrFI' }
+            ]
+          },
+          {
+            titulo: 'Suma por Diferencia',
+            videos: [
+              { nombre: 'Resolver: (√3 + 1)(√3 - 1) [Video 9]', url: 'https://www.youtube.com/embed/e0sFVqPidVg?si=c0cwnEX9OXwLTKJQ' },
+              { nombre: 'Ejemplo 02: (3x²y⁴ + 5z³)(3x²y⁴ - 5z³) [Video 10]', url: 'https://www.youtube.com/embed/uFtPQP7dcDI?si=wz1jwLVGd0XJt2Pw' },
+              { nombre: 'Ejemplo 03: Expresión con raíces [Video 11]', url: 'https://www.youtube.com/embed/Mf0fBojUPJw?si=cNGBJ-DKoK_lckvi' }
+            ]
+          },
+          {
+            titulo: 'Producto de Binomios con Término Común',
+            videos: [
+              { nombre: 'Introducción y fórmula (x+a)(x+b) [Video 12]', url: 'https://www.youtube.com/embed/gysLiWuCxGo?si=43IYpD6m7Kvhu-i3' },
+              { nombre: 'Ejemplo con 2x² + 3 [Video 13]', url: 'https://www.youtube.com/embed/pK0TEYAv4h0?si=Bma9qfiL9BDXtXEZ' },
+              { nombre: 'Ejemplo con x³ - 8 [Video 14]', url: 'https://www.youtube.com/embed/gDQWRzSFbvU?si=WAiht-tYlhoyGwu4' },
+              { nombre: 'Ejemplo 04: (3z - 7) [Video 15]', url: 'https://www.youtube.com/embed/Gb8m__EVLNk?si=7KPmmatUlLttPLeV' }
+            ]
+          },
+          {
+            titulo: 'Binomio al Cubo',
+            videos: [
+              { nombre: 'Binomio al Cubo (x + 5)³ [Video 16]', url: 'https://www.youtube.com/embed/AmuH1K_nPj4?si=GpyTj7nkEjNsrQDl' },
+              { nombre: 'Ejemplo 02: (2x + y²)³ [Video 17]', url: 'https://www.youtube.com/embed/AmuH1K_nPj4?si=TcESi_x0WQAiSYy5' },
+              { nombre: 'Binomio al Cubo con Fracciones (Ejemplo 3) [Video 18]', url: 'https://www.youtube.com/embed/IWzKrguJsvg?si=dCEQVrnAdV2W0YYu' },
+              { nombre: 'Binomio al Cubo (x - 6)³ [Video 19]', url: 'https://www.youtube.com/embed/ahcjA61W7sg?si=k-QNWI0FFMeeKmUJ' },
+              { nombre: 'Ejemplo 05: (2x - 5)³ [Video 20]', url: 'https://www.youtube.com/embed/ZXGTpl9jSs8?si=1JbO3VI2O4gcP3xM' }
+            ]
+          },
+          {
+            titulo: 'Trinomio al Cuadrado',
+            videos: [
+              { nombre: 'Trinomio al Cuadrado (Ejemplo 1) [Video 21]', url: 'https://www.youtube.com/embed/BtTF7NrhmOM?si=6zR9GzjVM2rcqugl' },
+              { nombre: 'Trinomio al Cuadrado (Ejemplo 2) [Video 22]', url: 'https://www.youtube.com/embed/HaLw4Kae5QY?si=z4dw3W96WturgmHd' }
+            ]
+          },
+          {
+            titulo: 'Suma y Diferencia de Cubos',
+            videos: [
+              { nombre: 'Suma de Cubos (Ejemplo 1) [Video 23]', url: 'https://www.youtube.com/embed/ZZINw-AQS9o?si=7KI2p8YknikB9JhT' },
+              { nombre: 'Suma de Cubos (Ejemplo 2) [Video 24]', url: 'https://www.youtube.com/embed/ldRkHMP2JwQ?si=qQ5wsVMAv66ZfrmW' },
+              { nombre: 'Diferencia de Cubos (Ejemplo 1) [Video 25]', url: 'https://www.youtube.com/embed/d0fRsNaGNt8?si=Bkgv2bjk0ZhfxSHB' }
+            ]
+          },
+          {
+            titulo: 'Problemas Especiales y Avanzados',
+            videos: [
+              { nombre: 'Resolver (x+1)(x-1)(x²+1) [Video 26]', url: 'https://www.youtube.com/embed/t9pbC5LSajM?si=pmphWTLvhDMo-QKw' },
+              { nombre: 'Ejercicio con radicales avanzados [Video 27]', url: 'https://www.youtube.com/embed/rgbOM4f0Oa0?si=RbrICRWE9-emTcbq' },
+              { nombre: 'Problema 03: Si x + 1/x = 4... [Video 28]', url: 'https://www.youtube.com/embed/em-v_QG-ZBI?si=rI12mr3K1DgAK_Oq' },
+              { nombre: 'BINOMIO AL CUBO CON FRACCIONES [Video 29]', url: 'https://www.youtube.com/embed/ZMC1-OHb_Y8?si=RiyubPrHp9KSqdlN' },
+              { nombre: 'Polinomio al Cuadrado (2a - b + 2c)² [Video 29]', url: 'https://www.youtube.com/embed/rEH-SjZUEtw?si=B5wmYkB8BrP8lKPM' }
+            ]
+          }
+        ]
+      },
+      'Fracciones': {
+        subtemas: [
+          {
+            titulo: 'Conceptos Básicos y Gráfica',
+            videos: [
+              { nombre: '¿Qué es una Fracción? [Video 1]', url: 'https://www.youtube.com/embed/kkT0yetbCvw?si=yiCPYnueNJhAI-7a' },
+              { nombre: 'Numerador y Denominador de una Fracción [Video 2]', url: 'https://www.youtube.com/embed/ub8YLq3KrCg?si=kqmQH_pljQ_C3xxp' },
+              { nombre: 'Fracciones Homogéneas y Heterogéneas [Video 3]', url: 'https://www.youtube.com/embed/bxRoybsHjN8?si=nTZgAzhYhUnh9Ivg' },
+              { nombre: 'Gráfica de Fracciones [Video 4]', url: 'https://www.youtube.com/embed/VYbzOMKA4ag?si=8dLX1Z_ZRwFkFT4m' },
+              { nombre: 'Gráfica de Fracciones Impropias [Video 5]', url: 'https://www.youtube.com/embed/-LJL4SG7qDY?si=r-lGj4DKi7y_BJEr' },
+              { nombre: 'Cómo se leen las Fracciones [Video 6]', url: 'https://www.youtube.com/embed/pi8sUh0MgK8?si=rH91wiDnErxzORt-' }
+            ]
+          },
+          {
+            titulo: 'Propiedades y Operaciones Básicas',
+            videos: [
+              { nombre: 'Simplificar Fracciones [Video 7]', url: 'https://www.youtube.com/embed/Y5kUYZuz-Bk?si=P6ypQjKfb7WN23f0' },
+              { nombre: 'Amplificación de Fracciones [Video 8]', url: 'https://www.youtube.com/embed/_cY18BG-HWM?si=jQQglHFknndQVON4' },
+              { nombre: 'Comparar Fracciones (Mayor, menor o igual) [Video 9]', url: 'https://www.youtube.com/embed/8ZR6Sz-HxZk?si=WCtoUwVXvHUT1c92' },
+              { nombre: 'Fracciones Equivalentes [Video 10]', url: 'https://www.youtube.com/embed/QAzUuu8ozKI?si=rF9xzLmHx62dC4Rd' },
+              { nombre: 'Fracciones Unitarias [Video 11]', url: 'https://www.youtube.com/embed/mdcYTt_6w5o?si=WspRs1Am0-h9HuEU' },
+              { nombre: 'Suma de Fracciones de Igual Denominador [Video 12]', url: 'https://www.youtube.com/embed/DeHeC48-o68?si=TdOezxJ2srRBlVQY' },
+              { nombre: 'Suma de 3 Fracciones con Igual Denominador [Video 13]', url: 'https://www.youtube.com/embed/ffds2gOkiDg?si=XtkEqRWaagy-pgT_' },
+              { nombre: 'Suma y Resta de 3 Fracciones con Igual Denominador [Video 14]', url: 'https://www.youtube.com/embed/nIZgCvRA5wo?si=KoK9lhzwAsh5Kxtk' },
+              { nombre: 'Resta de Fracciones de Igual Denominador [Video 15]', url: 'https://www.youtube.com/embed/WJBTLSBS7sc?si=v3NO6AvuNlRy6ThU' },
+              { nombre: 'Suma de Fracciones con Diferente Denominador [Video 16]', url: 'https://www.youtube.com/embed/rGQmCL7QlDk?si=XyzxH_q444ZU8S2o' }
+            ]
+          },
+          {
+            titulo: 'Multiplicación y División de Fracciones',
+            videos: [
+              { nombre: 'Multiplicación de Fracciones [Video 17]', url: 'https://www.youtube.com/embed/IdbrQ9t7CdI?si=eDzkHuCR-3s-BDLO' },
+              { nombre: 'Multiplicación de 3 Fracciones [Video 18]', url: 'https://www.youtube.com/embed/G6Sqr1rt8HE?si=E3EDzqcsHK2s7J5b' },
+              { nombre: 'Multiplicación de Fracciones Negativas [Video 19]', url: 'https://www.youtube.com/embed/WlSREnN_IFg?si=kavMku1xezenN_It' },
+              { nombre: 'Multiplicación de Fracciones con Enteros [Video 20]', url: 'https://www.youtube.com/embed/o71npa8dJ-I?si=QqckKjonZSsM18Qy' },
+              { nombre: 'División de Fracciones [Video 21]', url: 'https://www.youtube.com/embed/4Nsv7dtCWTw?si=1orHXwPFK3MSYBOE' }
+            ]
+          },
+          {
+            titulo: 'Números Mixtos y Tipos',
+            videos: [
+              { nombre: 'Número Mixto a Fracción [Video 22]', url: 'https://www.youtube.com/embed/n4y2VYQT2MA?si=q8ihwXXzBkf97K8p' },
+              { nombre: 'Fracción a Número Mixto [Video 23]', url: 'https://www.youtube.com/embed/AlLQCLdKrcw?si=JnY9MY1GZPN--4yK' },
+              { nombre: 'Tipos de Fracciones (Propias, impropias, unitarias, decimales) [Video 24]', url: 'https://www.youtube.com/embed/10icGNxOAuY?si=vpauBzd4SwJ_FihB' }
+            ]
+          }
+        ]
+      },
+      'Conjuntos': {
+        subtemas: [
+          {
+            titulo: 'Introducción y Clases de Conjuntos',
+            videos: [
+              { nombre: '¿Qué son los Conjuntos? [Video 1]', url: 'https://www.youtube.com/embed/0k1QmGU0VaQ?si=XGcRCH5NMxQ-HZuy' },
+              { nombre: 'Pertenencia de Conjuntos y Varios Ejemplos [Video 2]', url: 'https://www.youtube.com/embed/AwrwfEsXiXQ?si=REZlq2Q_cVa3hNeS' },
+              { nombre: 'Clases de Conjuntos | Tipos de Conjuntos [Video 3]', url: 'https://www.youtube.com/embed/VfZOKsQqhiQ?si=ujuWTLwyK1CXMY3N' },
+              { nombre: 'Extensión y Comprensión de Conjuntos [Video 4]', url: 'https://www.youtube.com/embed/ebMrzCXcEQY?si=RNy31_MYhO3tDF-R' },
+              { nombre: 'Extensión y Comprensión de Conjuntos | Varios Ejemplos [Video 5]', url: 'https://www.youtube.com/embed/XlOXuD-F0Eg?si=iE7rJty0ysMrEn8B' },
+              { nombre: 'Cardinal de un Conjunto [Video 6]', url: 'https://www.youtube.com/embed/GSQFJbXKpdo?si=YoHRPEkGR4ck4MwZ' },
+              { nombre: 'Conjunto Vacío [Video 27]', url: 'https://www.youtube.com/embed/PjeKZNHkDgc?si=RTN7lQLepxyO0lD3' },
+              { nombre: 'Conjunto Finito e Infinito [Video 28]', url: 'https://www.youtube.com/embed/39dLF5gPeSw?si=BdG01amAof17reES' },
+              { nombre: 'Conjunto Unitario [Video 29]', url: 'https://www.youtube.com/embed/ezfqKlRIixE?si=LD0URVnVeWUDoN_f' }
+            ]
+          },
+          {
+            titulo: 'Diagramas, Relaciones y Comparación',
+            videos: [
+              { nombre: 'Conjunto Universal [Video 7]', url: 'https://www.youtube.com/embed/SRoz4DO8ZCk?si=s0wPGA82qtckAqwx' },
+              { nombre: 'Diagrama de Venn - Euler | Varios Ejemplos [Video 8]', url: 'https://www.youtube.com/embed/fDlmB3K7Hgk?si=m-TOYlNDxdnCJLt4' },
+              { nombre: 'Diagrama Lineal | Conjuntos [Video 9]', url: 'https://www.youtube.com/embed/zHY3qkQwLfs?si=j2QL1OqrRFZKgR6p' },
+              { nombre: 'Conjuntos Equivalentes | Conjuntos Iguales [Video 10]', url: 'https://www.youtube.com/embed/LstQ1wF_vlQ?si=gmAhDEuFi5VGK9xo' },
+              { nombre: 'Conjuntos Disjuntos | Conjuntos Diferentes [Video 11]', url: 'https://www.youtube.com/embed/PLFmBpEE8II?si=GTtFqqMExeWItzbJ' },
+              { nombre: 'Subconjuntos [Video 12]', url: 'https://www.youtube.com/embed/8iPMqZtkUAU?si=tE3v_5tNE_NZDs1c' },
+              { nombre: 'Inclusión de Conjuntos [Video 13]', url: 'https://www.youtube.com/embed/qszhgCAtRf8?si=tnfWN9Pc_afRpKNR' },
+              { nombre: 'Conjuntos Disjuntos [Video 31]', url: 'https://www.youtube.com/embed/GklPgQjIKRs?si=1qydk21Oaux7-b_b' },
+              { nombre: 'Conjuntos Equivalentes [Video 32]', url: 'https://www.youtube.com/embed/uDymJ7cHrpM?si=ajleaqPpMI8EsRh_' }
+            ]
+          },
+          {
+            titulo: 'Operaciones con Conjuntos',
+            videos: [
+              { nombre: 'Unión de Conjuntos [Video 14]', url: 'https://www.youtube.com/embed/XNDrPE4kRIA?si=40CoqrpeuwcAtX-0' },
+              { nombre: 'Intersección de Conjuntos [Video 15]', url: 'https://www.youtube.com/embed/XNDrPE4kRIA?si=DbH1m4WWV4__9EJh' },
+              { nombre: 'Diferencia de Conjuntos [Video 16]', url: 'https://www.youtube.com/embed/WYcv2Ji30u4?si=6EYVrGKBVckd8V4G' },
+              { nombre: 'Diferencia Simétrica de Conjuntos [Video 17]', url: 'https://www.youtube.com/embed/SKxPMgkRuXA?si=X7jUwzQJWH9Rxkpg' },
+              { nombre: 'Complemento de Conjuntos [Video 18]', url: 'https://www.youtube.com/embed/SKxPMgkRuXA?si=jCXT1BKT1Jqp9cv2' },
+              { nombre: 'Intersección de 3 Conjuntos [Video 33]', url: 'https://www.youtube.com/embed/DvBwXooQMGU?si=tL9g2X4shgXZHM7w' },
+              { nombre: 'Unión de 3 Conjuntos [Video 34]', url: 'https://www.youtube.com/embed/Gphy5p0_uHA?si=nQYtZ5j747s8erVS' },
+              { nombre: 'Determinación de Conjuntos [Video 35]', url: 'https://www.youtube.com/embed/z-E1k8LldM0?si=vGzhell21HTIZh1Q' }
+            ]
+          },
+          {
+            titulo: 'Conjunto Potencia y Problemas Resueltos',
+            videos: [
+              { nombre: 'Conjunto Potencia [Video 36]', url: 'https://www.youtube.com/embed/1q7CiTp1HCA?si=lIzVJFz5vvxoVcBo' },
+              { nombre: 'Subconjuntos | Conjunto Potencia [Video 37]', url: 'https://www.youtube.com/embed/ehaZEhXN2qg?si=OPEvcklqtAagcf7V' },
+              { nombre: 'Pertenencia e Inclusión de Conjuntos [Video 38]', url: 'https://www.youtube.com/embed/j7iESblg490?si=-MN4EQX2LOqR3vVN' },
+              { nombre: 'Cardinalidad de Conjuntos | Número Cardinal [Video 39]', url: 'https://www.youtube.com/embed/YWKvg-b6Ql0?si=wKm5t_DjgGJZg_u3' },
+              { nombre: 'Álgebra de Conjuntos | Ley de Morgan [Video 40]', url: 'https://www.youtube.com/embed/iD9he5FlN5k?si=iV-f3CV4lhrT2xqI' },
+              { nombre: 'Diagrama de Venn 3 Conjuntos [Video 42]', url: 'https://www.youtube.com/embed/uDymJ7cHrpM?si=xmLlWoRLQ-wnDeXU' },
+              { nombre: 'Ejercicios de Conjuntos: Conjunto Vacío [Video 20]', url: 'https://www.youtube.com/embed/XI6Jn1J_IGs?si=7gZvwpcNACcRtgqH' },
+              { nombre: 'Ejercicios de Conjuntos: Conjunto Unitario [Video 21]', url: 'https://www.youtube.com/embed/SIqnljyIeUE?si=HxIV9BnoM6UHpYdI' },
+              { nombre: 'Diagrama de Venn Ejercicios de Conjuntos [Video 24]', url: 'https://www.youtube.com/embed/sLF-hdS4R3M?si=Ac7EWwgBX6oKB3G5' }
+            ]
+          }
+        ]
+      },
+      'Leyes de Exponentes': {
+        subtemas: [
+          {
+            titulo: 'Conceptos Básicos y Propiedades de Bases Iguales',
+            videos: [
+              { nombre: '¿Qué es la Potenciación? [Video 1]', url: 'https://www.youtube.com/embed/cad_ioBB9Yo?si=zXwJWWEB966Jecwa' },
+              { nombre: 'Multiplicación de Potencias de Igual Base [Video 2]', url: 'https://www.youtube.com/embed/UHIPz4Hr3pg?si=y0ryLkJWg6weeWIa' },
+              { nombre: 'División de Potencias de Igual Base [Video 3]', url: 'https://www.youtube.com/embed/5zu7IK8SfW0?si=YWOZcpY-U9NNCL2O' }
+            ]
+          },
+          {
+            titulo: 'Leyes Fundamentales de la Potencia',
+            videos: [
+              { nombre: 'Leyes de Exponentes: Exponente Cero [Video 4]', url: 'https://www.youtube.com/embed/Fi7iM43Fzz4?si=UR13FZJp69V8_tRP' },
+              { nombre: 'Exponente Cero (Casos especiales) [Video 5]', url: 'https://www.youtube.com/embed/GXd0JtudzuE?si=XCvh3TH6nX5SNKK_' },
+              { nombre: 'Potencia de una Potencia [Video 6]', url: 'https://www.youtube.com/embed/7W8qkXoMlWU?si=o6lc7tMjKHsU9dvz' },
+              { nombre: 'Potencia de un Producto [Video 7]', url: 'https://www.youtube.com/embed/7W8qkXoMlWU?si=_KAqirgmpUaCj6gh' },
+              { nombre: 'Potencia de un Cociente [Video 8]', url: 'https://www.youtube.com/embed/Qeqtusn2F3M?si=eMbJzmOS9TgZ1r5F' },
+              { nombre: 'Potencia de Potencia: ¡Ten cuidado! [Video 9]', url: 'https://www.youtube.com/embed/3kcH1RFD18I?si=3Eey_Tc2EhO9LGlO' }
+            ]
+          },
+          {
+            titulo: 'Exponentes Especiales (Negativos y Fraccionarios)',
+            videos: [
+              { nombre: 'Exponente Negativo [Video 10]', url: 'https://www.youtube.com/embed/UnYRrslF2wk?si=yy-E5nWlxoPswDay' },
+              { nombre: 'Exponente Negativo de una Fracción [Video 11]', url: 'https://www.youtube.com/embed/qqb_kcOCjWI?si=g7u-CcFGSzn794sK' },
+              { nombre: 'Exponente Fraccionario [Video 12]', url: 'https://www.youtube.com/embed/5vqdGf52FYA?si=lxALqe3CrTcnsK4F' }
+            ]
+          },
+          {
+            titulo: 'Radicación y Leyes de Radicales',
+            videos: [
+              { nombre: 'Potencia de una Raíz [Video 13]', url: 'https://www.youtube.com/embed/DHiDFOGS2SU?si=pIk4sBNV--fhd0jE' },
+              { nombre: 'Multiplicación de Raíces [Video 14]', url: 'https://www.youtube.com/embed/Io1lJ1W-77c?si=Xr6OCM_JoIJ1Wpea' },
+              { nombre: 'División de Radicales [Video 15]', url: 'https://www.youtube.com/embed/vh-BSr6EHVI?si=IfReT5RMtlkQ0xE1' },
+              { nombre: 'Raíz de una Raíz [Video 16]', url: 'https://www.youtube.com/embed/DsA45jgeW6g?si=nbMuH43LV-cXJQms' }
+            ]
+          },
+          {
+            titulo: 'Ejercicios Resueltos y Avanzados',
+            videos: [
+              { nombre: 'Ejercicio 01: Leyes de Exponentes [Video 17]', url: 'https://www.youtube.com/embed/nrEsQHZdTVM?si=wX004Z4d-RzyMaPA' },
+              { nombre: 'Ejercicio 02: Leyes de Exponentes [Video 18]', url: 'https://www.youtube.com/embed/nrEsQHZdTVM?si=1_CoDtoVahfeJLj0' },
+              { nombre: 'Ejercicio 03: Leyes de Exponentes [Video 19]', url: 'https://www.youtube.com/embed/nrEsQHZdTVM?si=1_CoDtoVahfeJLj0' },
+              { nombre: 'Ejercicio 04: Leyes de Exponentes [Video 20]', url: 'https://www.youtube.com/embed/G0fzwUUAykU?si=gjrL_ouwRpotjHUL' },
+              { nombre: 'Ejercicio 05: Leyes de Exponentes [Video 21]', url: 'https://www.youtube.com/embed/l-FqvC5_Bt8?si=QXUT4miggofA6Y1n' },
+              { nombre: 'Ejercicio 06: Leyes de Exponentes [Video 22]', url: 'https://www.youtube.com/embed/ejOoNmykSjI?si=5n8C7JEazFWouI1p' },
+              { nombre: 'Potencia de un Producto (Avanzado) [Video 23]', url: 'https://www.youtube.com/embed/BNlWluHEg78?si=cJuyrKOBL-Td6tmA' }
+            ]
+          }
+        ]
+      }
+    };
 
-  <script src="scripts.js"></script>
+    const cineContainer = document.getElementById('cineContainer');
+    const cineVideo = document.getElementById('cineVideo');
+    const temarioContainer = document.getElementById('temarioContainer');
+    const cursoTituloModal = document.getElementById('cursoTituloModal');
+    const toggleMode = document.getElementById('toggleMode');
+
+    function openCine(nombreCurso) {
+      const curso = cursosData[nombreCurso];
+      if (!curso) return;
+
+      cursoTituloModal.textContent = `Temario: ${nombreCurso}`;
+
+      // Cargar por defecto el primer video del primer subtema
+      if (curso.subtemas.length > 0 && curso.subtemas[0].videos.length > 0) {
+        cineVideo.src = curso.subtemas[0].videos[0].url;
+      }
+
+      // Generar HTML desplegable por subtemas
+      let html = '';
+      curso.subtemas.forEach((sub, subIndex) => {
+        html += `
+          <div class="bg-[#161616] border border-[#262626] rounded-xl overflow-hidden">
+            <button onclick="toggleSubtema(${subIndex})" class="w-full p-3 text-left font-bold text-white hover:text-[#ffcc00] flex justify-between items-center transition-colors cursor-pointer text-sm">
+              <span>&#9656; ${sub.titulo}</span>
+              <span class="text-xs bg-[#222] px-2 py-0.5 rounded text-gray-400">${sub.videos.length}</span>
+            </button>
+            <div id="subtema-${subIndex}" class="hidden bg-[#111] px-3 pb-3 space-y-2 border-t border-[#222]">
+        `;
+        
+        sub.videos.forEach(vid => {
+          html += `
+            <div onclick="cambiarVideo('${vid.url}')" class="p-2.5 rounded-lg bg-[#1a1a1a] hover:bg-[#ffcc00] hover:text-black text-gray-300 text-sm font-medium cursor-pointer transition-colors flex items-center gap-2">
+              <span class="text-[#ffcc00]">&#9654;</span> ${vid.nombre}
+            </div>
+          `;
+        });
+
+        html += `
+            </div>
+          </div>
+        `;
+      });
+
+      temarioContainer.innerHTML = html;
+
+      // Mostrar modal
+      cineContainer.style.display = 'flex';
+      setTimeout(() => {
+        cineContainer.classList.remove('opacity-0', 'pointer-events-none');
+        cineContainer.classList.add('opacity-100', 'pointer-events-auto');
+      }, 10);
+    }
+
+    // Función para abrir videos destacados del carrusel de forma limpia
+    function openFeaturedVideo(url) {
+      cursoTituloModal.textContent = "Video Destacado";
+      cineVideo.src = url;
+      
+      // Ocultar la barra lateral de temario cuando se abre un video suelto del carrusel para darle todo el ancho
+      temarioContainer.innerHTML = `<p class="text-gray-400 text-sm text-center py-4">Este video se reprodujo desde la sección de destacados.</p>`;
+
+      cineContainer.style.display = 'flex';
+      setTimeout(() => {
+        cineContainer.classList.remove('opacity-0', 'pointer-events-none');
+        cineContainer.classList.add('opacity-100', 'pointer-events-auto');
+      }, 10);
+    }
+
+    // Función para desplegar/contraer los videos de cada subtema
+    function toggleSubtema(index) {
+      const el = document.getElementById(`subtema-${index}`);
+      if (el) {
+        el.classList.toggle('hidden');
+      }
+    }
+
+    // Función para cambiar el video principal al hacer clic en cualquier opción
+    function cambiarVideo(url) {
+      cineVideo.src = url;
+    }
+
+    function closeCine() {
+      cineContainer.classList.remove('opacity-100', 'pointer-events-auto');
+      cineContainer.classList.add('opacity-0', 'pointer-events-none');
+      setTimeout(() => {
+        cineVideo.src = ''; // Detiene completamente el audio/video al cerrar
+        cineContainer.style.display = 'none';
+      }, 400);
+    }
+
+    // Toggle Light / Dark Mode
+    toggleMode.addEventListener('click', () => {
+      const isLight = document.body.classList.toggle('light-mode');
+      if (isLight) {
+        document.body.style.backgroundColor = '#f9f9f9';
+        document.body.style.color = '#000000';
+        toggleMode.textContent = '☀️';
+        document.querySelector('header').style.backgroundColor = 'rgba(249, 249, 249, 0.9)';
+      } else {
+        document.body.style.backgroundColor = '#0a0a0a';
+        document.body.style.color = '#ffffff';
+        toggleMode.textContent = '🌙';
+        document.querySelector('header').style.backgroundColor = 'rgba(10, 10, 10, 0.9)';
+      }
+    });
+
+    // Carrusel de Videos Script
+    document.addEventListener("DOMContentLoaded", () => {
+      const track = document.querySelector(".video-track");
+      const prevBtn = document.querySelector(".prev");
+      const nextBtn = document.querySelector(".next");
+      const scrollAmount = 340;
+
+      prevBtn.addEventListener("click", () => {
+        track.scrollBy({ left: -scrollAmount, behavior: "smooth" });
+      });
+
+      nextBtn.addEventListener("click", () => {
+        track.scrollBy({ left: scrollAmount, behavior: "smooth" });
+      });
+    });
+  </script>
 </body>
 </html>
